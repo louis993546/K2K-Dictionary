@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
         tabs = (TabLayout) findViewById(R.id.tabs);
         vp = (ViewPager) findViewById(R.id.viewpager);
 
-        toolbar.setTitle("Dictionary");
+        toolbar.setTitle(R.string.dict);
         setSupportActionBar(toolbar);
 
         vp.setAdapter(new viewPagerAdapter(getSupportFragmentManager()));
@@ -38,11 +38,6 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
         tabs.removeAllTabs();
         tabs.addTab(tabs.newTab().setText("All"), 0);
         tabs.addTab(tabs.newTab().setText("Favourite"), 1);
-        tabs.addTab(tabs.newTab().setText("Favourite"), 2);
-        tabs.addTab(tabs.newTab().setText("Favourite"), 3);
-        tabs.addTab(tabs.newTab().setText("Favourite"), 4);
-        tabs.addTab(tabs.newTab().setText("Favourite"), 5);
-        tabs.addTab(tabs.newTab().setText("Favourite"), 6);
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
