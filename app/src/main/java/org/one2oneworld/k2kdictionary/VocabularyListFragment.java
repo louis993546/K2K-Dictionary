@@ -87,8 +87,7 @@ public class VocabularyListFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
@@ -99,9 +98,9 @@ public class VocabularyListFragment extends Fragment {
         ld.add(new Data("a", "the 1st letter"));
         ld.add(new Data("b", "the 2nd letter"));
         ld.add(new Data("c", "the 3rd letter"));
-        rvAdapter rva = new rvAdapter();
-        rva.setmData(ld);
+        rvAdapter rva = new rvAdapter(ld, getContext());
         recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(rva);
     }
