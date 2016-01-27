@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import org.one2oneworld.k2kdictionary.view.fragment.VocabularyListFragment;
+
 /**
  * Created by Louis on 19/1/16.
  */

@@ -1,34 +1,29 @@
-package org.one2oneworld.k2kdictionary;
+package org.one2oneworld.k2kdictionary.view.fragment;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.one2oneworld.k2kdictionary.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link VocabularyListFragment.OnFragmentInteractionListener} interface
+ * {@link BlankFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link VocabularyListFragment#newInstance} factory method to
+ * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VocabularyListFragment extends Fragment {
+public class BlankFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    private RecyclerView recyclerView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -36,7 +31,7 @@ public class VocabularyListFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public VocabularyListFragment() {
+    public BlankFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +41,11 @@ public class VocabularyListFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VocabularyListFragment.
+     * @return A new instance of fragment BlankFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VocabularyListFragment newInstance(String param1, String param2) {
-        VocabularyListFragment fragment = new VocabularyListFragment();
+    public static BlankFragment newInstance(String param1, String param2) {
+        BlankFragment fragment = new BlankFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,7 +66,7 @@ public class VocabularyListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vocabulary_list, container, false);
+        return inflater.inflate(R.layout.fragment_blank, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -87,22 +82,16 @@ public class VocabularyListFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        List<Data> ld = new ArrayList<>();
-        ld.add(new Data("a", "the 1st letter"));
-        ld.add(new Data("b", "the 2nd letter"));
-        ld.add(new Data("c", "the 3rd letter"));
-        rvAdapter rva = new rvAdapter(ld, getContext());
-        recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(rva);
+        TextView tv = (TextView) getView().findViewById(R.id.textview);
+        tv.setText(mParam1);
     }
 
     @Override

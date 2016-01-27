@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import org.one2oneworld.k2kdictionary.view.activity.VocabActivity;
+
 /**
  * Created by Louis on 26/1/16.
  */
