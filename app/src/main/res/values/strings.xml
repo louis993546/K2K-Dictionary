@@ -8,4 +8,6 @@
     <string name="action_about">About</string>
     <string name="dict">Dictionary</string>
     <string name="title_activity_vocab">VocabActivity</string>
+    <string name="all">All</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

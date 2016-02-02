@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
 
         tabs.setupWithViewPager(vp);
         tabs.removeAllTabs();
-        tabs.addTab(tabs.newTab().setText("All"), 0);
+        tabs.addTab(tabs.newTab().setText(R.string.all), 0);
         tabs.addTab(tabs.newTab().setText("Favourite"), 1);
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

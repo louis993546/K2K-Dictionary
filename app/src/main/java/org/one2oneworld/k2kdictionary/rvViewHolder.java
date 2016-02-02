@@ -26,6 +26,7 @@ public class rvViewHolder extends RecyclerView.ViewHolder {
                 Log.d("qqq", "1");
                 Intent i = new Intent(context, VocabActivity.class);
 //                i.putExtra()
+                i.putExtra("voca", "vocabulary");
                 context.startActivity(i);
             }
         });
