@@ -1,9 +1,11 @@
 package org.one2oneworld.k2kdictionary.view.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,8 +65,7 @@ public class BlankFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_blank, container, false);
     }
@@ -82,16 +83,18 @@ public class BlankFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        TextView tv = (TextView) getView().findViewById(R.id.textview);
+        TextView tv = (TextView) getView().findViewById(R.id.voca);
         tv.setText(mParam1);
+
+        SharedPreferences sp = getActivity().getSharedPreferences("K2K", Context.MODE_PRIVATE);
+        Log.d("qqq", sp.getString("testing", "failed"));
     }
 
     @Override

@@ -99,20 +99,6 @@ public class VocabularyListFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        List<String> ls = new ArrayList<>();
-        ls.add("aslfadsf");
-        ls.add("aslfadscwqqwecfc");
-        ls.add("aslfadasdfqwcsf");
-        ls.add("asasdflfadsf");
-
-
-
-
-
-
-
-        
         List<Data> ld = new ArrayList<>();
         ld.add(new Data("a", "the 1st letter"));
         ld.add(new Data("b", "the 2nd letter"));

@@ -1,5 +1,6 @@
 package org.one2oneworld.k2kdictionary.view.activity;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -47,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
             }
         });
 
+        SharedPreferences sp = this.getSharedPreferences("K2K", MODE_PRIVATE);
+        sp.edit().putString("testing", "123").apply();
+        Log.d("qqq", "saved");
     }
 
     @Override

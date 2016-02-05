@@ -23,9 +23,7 @@ public class rvViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("qqq", "1");
                 Intent i = new Intent(context, VocabActivity.class);
-//                i.putExtra()
                 i.putExtra("voca", "vocabulary");
                 context.startActivity(i);
             }
