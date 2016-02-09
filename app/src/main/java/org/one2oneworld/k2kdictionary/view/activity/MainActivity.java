@@ -1,6 +1,8 @@
 package org.one2oneworld.k2kdictionary.view.activity;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,8 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.one2oneworld.k2kdictionary.R;
+import org.one2oneworld.k2kdictionary.sampleDBHelper;
 import org.one2oneworld.k2kdictionary.view.fragment.VocabularyListFragment;
 import org.one2oneworld.k2kdictionary.viewPagerAdapter;
+
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 public class MainActivity extends AppCompatActivity implements VocabularyListFragment.OnFragmentInteractionListener {
     Toolbar toolbar;
@@ -57,9 +63,28 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
             }
         });
 
+
+
+
+
+
         SharedPreferences sp = this.getSharedPreferences("K2K", MODE_PRIVATE);
         sp.edit().putString("testing", "123").apply();
         Log.d("qqq", "saved");
+
+
+
+
+
+
+
+
+
+        SQLiteDatabase db = new sampleDBHelper(getApplicationContext()).getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(sampleDBHelper.COLUMN_VOCAB, new BigInteger(130, new SecureRandom()).toString());
+        values.put("def", new BigInteger(130, new SecureRandom()).toString());
+        Log.d("qqq", "saved to database as: " + db.insert("k2k", null, values));
     }
 
     @Override

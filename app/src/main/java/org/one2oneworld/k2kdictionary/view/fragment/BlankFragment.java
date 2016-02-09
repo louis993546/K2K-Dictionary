@@ -2,6 +2,8 @@ package org.one2oneworld.k2kdictionary.view.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.one2oneworld.k2kdictionary.R;
+import org.one2oneworld.k2kdictionary.sampleDBHelper;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -94,7 +99,32 @@ public class BlankFragment extends Fragment {
         tv.setText(mParam1);
 
         SharedPreferences sp = getActivity().getSharedPreferences("K2K", Context.MODE_PRIVATE);
-        Log.d("qqq", sp.getString("testing", "failed"));
+        Log.d("qqq12", sp.getString("testing", "failed"));
+
+
+
+
+
+
+
+        SQLiteDatabase db = new sampleDBHelper(getContext()).getReadableDatabase();
+
+        String[] colms = {"vocab", "def"};
+        Cursor c = db.query(true, "k2k", colms, null, null, null, null, null, null);
+        if (c != null) {
+            c.moveToFirst();
+            int count = c.getCount();
+            int columnCount = c.getColumnCount();
+            ArrayList<String> ral = new ArrayList<>();
+            if (count > 0) {
+                c.moveToFirst();
+                do {
+                    for (int j = 1; j < columnCount; j++) {
+                        Log.d("qqq4", c.getString(j));
+                    }
+                } while (c.moveToNext());
+            }
+        }
     }
 
     @Override
