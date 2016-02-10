@@ -117,7 +117,6 @@ public class BlankFragment extends Fragment {
             int columnCount = c.getColumnCount();
             ArrayList<String> ral = new ArrayList<>();
             if (count > 0) {
-                c.moveToFirst();
                 do {
                     for (int j = 1; j < columnCount; j++) {
                         Log.d("qqq4", c.getString(j));

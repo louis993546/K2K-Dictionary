@@ -3,6 +3,7 @@ package org.one2oneworld.k2kdictionary.view.activity;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -75,9 +76,8 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
 
 
 
-
-
-
+        SQLiteOpenHelper sloh = new sampleDBHelper(getApplicationContext());
+        SQLiteDatabase db2 = sloh.getWritableDatabase();
 
 
         SQLiteDatabase db = new sampleDBHelper(getApplicationContext()).getWritableDatabase();
