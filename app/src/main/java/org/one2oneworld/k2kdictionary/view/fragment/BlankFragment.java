@@ -110,15 +110,14 @@ public class BlankFragment extends Fragment {
         SQLiteDatabase db = new sampleDBHelper(getContext()).getReadableDatabase();
 
         String[] colms = {"vocab", "def"};
-        Cursor c = db.query(true, "k2k", colms, null, null, null, null, null, null);
+        Cursor c = db.query(false, "k2k", colms, null, null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
             int count = c.getCount();
             int columnCount = c.getColumnCount();
-            ArrayList<String> ral = new ArrayList<>();
             if (count > 0) {
                 do {
-                    for (int j = 1; j < columnCount; j++) {
+                    for (int j = 0; j < columnCount; j++) {
                         Log.d("qqq4", c.getString(j));
                     }
                 } while (c.moveToNext());

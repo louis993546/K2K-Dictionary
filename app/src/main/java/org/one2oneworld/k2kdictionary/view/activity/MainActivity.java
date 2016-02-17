@@ -75,16 +75,14 @@ public class MainActivity extends AppCompatActivity implements VocabularyListFra
 
 
 
-
-        SQLiteOpenHelper sloh = new sampleDBHelper(getApplicationContext());
-        SQLiteDatabase db2 = sloh.getWritableDatabase();
-
-
         SQLiteDatabase db = new sampleDBHelper(getApplicationContext()).getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(sampleDBHelper.COLUMN_VOCAB, new BigInteger(130, new SecureRandom()).toString());
-        values.put("def", new BigInteger(130, new SecureRandom()).toString());
+        values.put(sampleDBHelper.COLUMN_VOCAB, "v=" + new BigInteger(130, new SecureRandom()).toString());
+        values.put("def", "d=" + new BigInteger(130, new SecureRandom()).toString());
         Log.d("qqq", "saved to database as: " + db.insert("k2k", null, values));
+
+
+
     }
 
     @Override
